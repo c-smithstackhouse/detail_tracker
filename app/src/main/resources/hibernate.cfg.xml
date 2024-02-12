@@ -1,0 +1,44 @@
+<!-- In this example:
+
+Replace com.mysql.jdbc.Driver with the JDBC driver class for your database.
+Replace jdbc:mysql://localhost:3306/mydatabase with the JDBC URL for your database.
+Replace dbuser and dbpass with your database username and password.
+Replace org.hibernate.dialect.MySQL5Dialect with the Hibernate dialect for your database.
+Replace com.example.MyEntity1 and com.example.MyEntity2 with the fully-qualified names of your entity classes. 
+Add more <mapping class="..."/> lines as needed for all your entity classes. -->
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- Database connection settings -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/mydatabase</property>
+        <property name="connection.username">dbuser</property>
+        <property name="connection.password">dbpass</property>
+
+        <!-- SQL dialect -->
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Disable the second-level cache  -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+        <!-- Echo all executed SQL to stdout -->
+        <property name="show_sql">true</property>
+
+        <!-- Drop and re-create the database schema on startup -->
+        <property name="hbm2ddl.auto">update</property>
+
+        <!-- Names of mapped classes -->
+        <!-- Replace with your actual entity classes -->
+        <mapping class="com.example.MyEntity1"/>
+        <mapping class="com.example.MyEntity2"/>
+        <!-- More classes can be added here -->
+    </session-factory>
+</hibernate-configuration>
