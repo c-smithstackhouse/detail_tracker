@@ -7,6 +7,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import java.util.List;
 
+// test.
 public class ClientDaoImpl implements ClientDao {
     private SessionFactory sessionFactory;
 
