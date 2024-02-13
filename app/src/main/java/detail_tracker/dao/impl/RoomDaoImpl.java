@@ -2,62 +2,37 @@ package detail_tracker.dao.impl;
 
 import detail_tracker.dao.RoomDao;
 import detail_tracker.entity.Room;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import java.util.List;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 public class RoomDaoImpl implements RoomDao {
-    private SessionFactory sessionFactory;
 
-    public RoomDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Override
+    public Room findById(Integer id) {
+        return entityManager.find(Room.class, id);
     }
 
     @Override
-    public Room getRoom(Integer id) {
-        try (Session session = sessionFactory.openSession()) {
-            return session.find(Room.class, id);
-        }
+    public List<Room> findAll() {
+        return entityManager.createQuery("SELECT r FROM Room r", Room.class).getResultList();
     }
 
     @Override
-    public List<Room> getAllRooms() {
-        try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("from Room", Room.class).list();
-        }
+    public void save(Room room) {
+        entityManager.persist(room);
     }
 
     @Override
-    public void saveRoom(Room room) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            session.merge(room);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void update(Room room) {
+        entityManager.merge(room);
     }
 
     @Override
-    public void deleteRoom(Integer id) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            Room room = session.find(Room.class, id);
-            if (room != null) {
-                session.remove(room);
-            }
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void delete(Room room) {
+        entityManager.remove(entityManager.contains(room) ? room : entityManager.merge(room));
     }
 }

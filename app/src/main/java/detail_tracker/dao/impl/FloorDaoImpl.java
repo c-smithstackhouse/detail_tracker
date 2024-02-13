@@ -2,62 +2,37 @@ package detail_tracker.dao.impl;
 
 import detail_tracker.entity.Floor;
 import detail_tracker.dao.FloorDao;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
 import java.util.List;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 public class FloorDaoImpl implements FloorDao {
-    private SessionFactory sessionFactory;
 
-    public FloorDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Override
+    public Floor findById(Integer id) {
+        return entityManager.find(Floor.class, id);
     }
 
     @Override
-    public Floor getFloor(Integer id) {
-        try (Session session = sessionFactory.openSession()) {
-            return session.get(Floor.class, id);
-        }
+    public List<Floor> findAll() {
+        return entityManager.createQuery("SELECT f FROM Floor f", Floor.class).getResultList();
     }
 
     @Override
-    public List<Floor> getAllFloors() {
-        try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("from Floor", Floor.class).list();
-        }
+    public void save(Floor floor) {
+        entityManager.persist(floor);
     }
 
     @Override
-    public void saveFloor(Floor floor) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            session.merge(floor);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void update(Floor floor) {
+        entityManager.merge(floor);
     }
 
     @Override
-    public void deleteFloor(Integer id) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            Floor floor = session.get(Floor.class, id);
-            if (floor != null) {
-                session.remove(floor);
-            }
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void delete(Floor floor) {
+        entityManager.remove(entityManager.contains(floor) ? floor : entityManager.merge(floor));
     }
 }

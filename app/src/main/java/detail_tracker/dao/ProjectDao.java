@@ -4,8 +4,9 @@ import detail_tracker.entity.Project;
 import java.util.List;
 
 public interface ProjectDao {
-    Project getProject(Integer id);
-    List<Project> getAllProjects();
-    void saveProject(Project project);
-    void deleteProject(Integer id);
+    Project findById(Integer id);
+    List<Project> findAll();
+    void save(Project project);
+    void update(Project project);
+    void delete(Project project);
 }

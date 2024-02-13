@@ -4,8 +4,9 @@ import detail_tracker.entity.Address;
 import java.util.List;
 
 public interface AddressDao {
-    Address getAddress(Integer id);
-    List<Address> getAllAddresses();
-    void saveAddress(Address address);
-    void deleteAddress(Integer id);
+    Address findById(Integer id);
+    List<Address> findAll();
+    void save(Address address);
+    void update(Address address);
+    void delete(Address address);
 }

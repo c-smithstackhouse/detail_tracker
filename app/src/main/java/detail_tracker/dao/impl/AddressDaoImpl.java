@@ -2,62 +2,37 @@ package detail_tracker.dao.impl;
 
 import detail_tracker.dao.AddressDao;
 import detail_tracker.entity.Address;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import java.util.List;
 
 public class AddressDaoImpl implements AddressDao {
-    private SessionFactory sessionFactory;
 
-    public AddressDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Override
+    public Address findById(Integer id) {
+        return entityManager.find(Address.class, id);
     }
 
     @Override
-    public Address getAddress(Integer id) {
-        try (Session session = sessionFactory.openSession()) {
-            return session.get(Address.class, id);
-        }
+    public List<Address> findAll() {
+        return entityManager.createQuery("SELECT a FROM Address a", Address.class).getResultList();
     }
 
     @Override
-    public List<Address> getAllAddresses() {
-        try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("from Address", Address.class).list();
-        }
+    public void save(Address address) {
+        entityManager.persist(address);
     }
 
     @Override
-    public void saveAddress(Address address) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            session.merge(address);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void update(Address address) {
+        entityManager.merge(address);
     }
 
     @Override
-    public void deleteAddress(Integer id) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            Address address = session.get(Address.class, id);
-            if (address != null) {
-                session.remove(address);
-            }
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void delete(Address address) {
+        entityManager.remove(entityManager.contains(address) ? address : entityManager.merge(address));
     }
 }

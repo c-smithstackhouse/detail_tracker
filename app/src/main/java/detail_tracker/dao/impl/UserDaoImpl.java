@@ -1,63 +1,38 @@
 package detail_tracker.dao.impl;
 
-import detail_tracker.entity.User;
 import detail_tracker.dao.UserDao;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import detail_tracker.entity.User;
 import java.util.List;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 public class UserDaoImpl implements UserDao {
-    private SessionFactory sessionFactory;
 
-    public UserDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Override
+    public User findById(Integer id) {
+        return entityManager.find(User.class, id);
     }
 
     @Override
-    public User getUser(Integer id) {
-        try (Session session = sessionFactory.openSession()) {
-            return session.find(User.class, id);
-        }
+    public List<User> findAll() {
+        return entityManager.createQuery("SELECT u FROM User u", User.class).getResultList();
     }
 
     @Override
-    public List<User> getAllUsers() {
-        try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("from User", User.class).list();
-        }
+    public void save(User user) {
+        entityManager.persist(user);
     }
 
     @Override
-    public void saveUser(User user) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            session.merge(user);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void update(User user) {
+        entityManager.merge(user);
     }
 
     @Override
-    public void deleteUser(Integer id) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            User user = session.find(User.class, id);
-            if (user != null) {
-                session.remove(user);
-            }
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void delete(User user) {
+        entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
     }
 }

@@ -4,8 +4,9 @@ import detail_tracker.entity.Contact;
 import java.util.List;
 
 public interface ContactDao {
-    Contact getContact(Integer id);
-    List<Contact> getAllContacts();
-    void saveContact(Contact contact);
-    void deleteContact(Integer id);
+    Contact findById(Integer id);
+    List<Contact> findAll();
+    void save(Contact contact);
+    void update(Contact contact);
+    void delete(Contact contact);
 }

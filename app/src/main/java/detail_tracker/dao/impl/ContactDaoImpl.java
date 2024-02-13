@@ -2,62 +2,37 @@ package detail_tracker.dao.impl;
 
 import detail_tracker.dao.ContactDao;
 import detail_tracker.entity.Contact;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.Transaction;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 import java.util.List;
 
 public class ContactDaoImpl implements ContactDao {
-    private SessionFactory sessionFactory;
 
-    public ContactDaoImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Override
+    public Contact findById(Integer id) {
+        return entityManager.find(Contact.class, id);
     }
 
     @Override
-    public Contact getContact(Integer id) {
-        try (Session session = sessionFactory.openSession()) {
-            return session.get(Contact.class, id);
-        }
+    public List<Contact> findAll() {
+        return entityManager.createQuery("SELECT c FROM Contact c", Contact.class).getResultList();
     }
 
     @Override
-    public List<Contact> getAllContacts() {
-        try (Session session = sessionFactory.openSession()) {
-            return session.createQuery("from Contact", Contact.class).list();
-        }
+    public void save(Contact contact) {
+        entityManager.persist(contact);
     }
 
     @Override
-    public void saveContact(Contact contact) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            session.merge(contact);
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void update(Contact contact) {
+        entityManager.merge(contact);
     }
 
     @Override
-    public void deleteContact(Integer id) {
-        Transaction transaction = null;
-        try (Session session = sessionFactory.openSession()) {
-            transaction = session.beginTransaction();
-            Contact contact = session.get(Contact.class, id);
-            if (contact != null) {
-                session.remove(contact);
-            }
-            transaction.commit();
-        } catch (Exception e) {
-            if (transaction != null) {
-                transaction.rollback();
-            }
-            e.printStackTrace();
-        }
+    public void delete(Contact contact) {
+        entityManager.remove(entityManager.contains(contact) ? contact : entityManager.merge(contact));
     }
 }

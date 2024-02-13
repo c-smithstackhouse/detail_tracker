@@ -4,8 +4,9 @@ import detail_tracker.entity.User;
 import java.util.List;
 
 public interface UserDao {
-    User getUser(Integer id);
-    List<User> getAllUsers();
-    void saveUser(User user);
-    void deleteUser(Integer id);
+    User findById(Integer id);
+    List<User> findAll();
+    void save(User user);
+    void update(User user);
+    void delete(User user);
 }
