@@ -10,7 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 
 @Entity
-@Table(name = "Address")
+@Table(name = "address")
 public class Address {
 
     public enum State {

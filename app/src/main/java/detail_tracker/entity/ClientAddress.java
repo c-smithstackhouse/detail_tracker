@@ -9,7 +9,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 
 @Entity
-@Table(name = "ClientAddress")
+@Table(name = "client_address")
 @IdClass(ClientAddressId.class)
 public class ClientAddress {
 

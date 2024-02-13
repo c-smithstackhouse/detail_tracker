@@ -10,7 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 
 @Entity
-@Table(name = "Floor")
+@Table(name = "floor")
 public class Floor {
 
     public enum FloorType {

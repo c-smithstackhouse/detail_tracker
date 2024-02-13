@@ -12,7 +12,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 
 @Entity
-@Table(name = "User")
+@Table(name = "user")
 public class User {
 
     public enum JobTitle {

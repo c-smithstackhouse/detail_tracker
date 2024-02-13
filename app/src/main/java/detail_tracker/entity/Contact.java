@@ -10,7 +10,7 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
 
 @Entity
-@Table(name = "Contact")
+@Table(name = "contact")
 public class Contact {
 
     public enum Preferred {
