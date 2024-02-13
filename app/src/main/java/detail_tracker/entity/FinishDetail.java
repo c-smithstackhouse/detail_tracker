@@ -16,7 +16,7 @@ public class FinishDetail {
     private Room room;
 
     @ManyToOne
-    @JoinColumn(name = "note_id", nullable = false)
+    @JoinColumn(name = "note_id", nullable = true)
     private Note note;
 
     @Column(name = "location", nullable = false)

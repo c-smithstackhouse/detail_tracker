@@ -14,7 +14,7 @@ public class FlooringDetail {
     @Column(name = "room_id", nullable = false)
     private int roomId;
 
-    @Column(name = "note_id", nullable = false)
+    @Column(name = "note_id", nullable = true)
     private int noteId;
 
     @Column(name = "material", nullable = false, length = 100)

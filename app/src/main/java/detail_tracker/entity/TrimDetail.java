@@ -14,7 +14,7 @@ public class TrimDetail {
     @Column(name = "room_id", nullable = false)
     private int roomId;
 
-    @Column(name = "note_id", nullable = false)
+    @Column(name = "note_id", nullable = true)
     private int noteId;
 
     @Column(name = "location", nullable = false, length = 500)
