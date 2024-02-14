@@ -1,11 +1,9 @@
-<!-- In this example:
-
-Replace com.mysql.jdbc.Driver with the JDBC driver class for your database.
-Replace jdbc:mysql://localhost:3306/mydatabase with the JDBC URL for your database.
-Replace dbuser and dbpass with your database username and password.
-Replace org.hibernate.dialect.MySQL5Dialect with the Hibernate dialect for your database.
-Replace com.example.MyEntity1 and com.example.MyEntity2 with the fully-qualified names of your entity classes. 
-Add more <mapping class="..."/> lines as needed for all your entity classes. -->
+<!-- Remember to replace com.mysql.jdbc.Driver with the JDBC driver class for your 
+database, jdbc:mysql://localhost:3306/mydatabase with the JDBC URL for your database, 
+username and password with your database username and password, 
+org.hibernate.dialect.MySQL5Dialect with the Hibernate dialect for your database, and 
+com.example.MyEntity1 and com.example.MyEntity2 with the fully-qualified names of your 
+entity classes. Add more <mapping class="..."/> lines as needed for all your entity classes.-->
 
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
@@ -15,16 +13,23 @@ Add more <mapping class="..."/> lines as needed for all your entity classes. -->
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="connection.url">jdbc:mysql://localhost:3306/mydatabase</property>
-        <property name="connection.username">dbuser</property>
-        <property name="connection.password">dbpass</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydatabase</property>
+        <property name="hibernate.connection.username">username</property>
+        <property name="hibernate.connection.password">password</property>
 
         <!-- SQL dialect -->
-        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
+
+        <!-- Connection pool settings -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
 
         <!-- Disable the second-level cache  -->
         <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>

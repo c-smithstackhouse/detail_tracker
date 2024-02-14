@@ -59,6 +59,43 @@ public class Room {
     @Column(name = "arch_code", nullable = false, length = 20, columnDefinition = "varchar(20) default 'n/a'")
     private String archCode = "n/a";
 
-    // getters and setters
-    // ...
+    public Integer getRoomId() {
+        return roomId;
+    }
+    
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
+    }
+    
+    public Floor getFloor() {
+        return floor;
+    }
+    
+    public void setFloor(Floor floor) {
+        this.floor = floor;
+    }
+    
+    public RoomType getRoomType() {
+        return roomType;
+    }
+    
+    public void setRoomType(RoomType roomType) {
+        this.roomType = roomType;
+    }
+    
+    public String getRoomName() {
+        return roomName;
+    }
+    
+    public void setRoomName(String roomName) {
+        this.roomName = roomName;
+    }
+    
+    public String getArchCode() {
+        return archCode;
+    }
+    
+    public void setArchCode(String archCode) {
+        this.archCode = archCode;
+    }
 }

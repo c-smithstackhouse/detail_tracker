@@ -6,6 +6,10 @@ import jakarta.persistence.*;
 @Table(name = "finish_detail")
 public class FinishDetail {
 
+    public enum Sheen {
+        N_A, GLOSS, EGGSHELL, SATIN, MATTE
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "finish_det_id", nullable = false)
@@ -99,8 +103,6 @@ public class FinishDetail {
     public void setSheen(Sheen sheen) {
         this.sheen = sheen;
     }
+
 }
 
-enum Sheen {
-    N_A, GLOSS, EGGSHELL, SATIN, MATTE
-}
