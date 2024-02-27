@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<TitledPane fx:id="mainTitlePane" text="Detail Tracker" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="detail_tracker.controllers.RoomEditorController">
+   <content>
+      <ScrollPane fx:id="mainScrollPane">
+         <content>
+            <VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="15.0">
+               <children>
+                  <HBox prefHeight="19.0" prefWidth="600.0">
+                     <children>
+                        <Label fx:id="floorNumLabel" text="FloorNum">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="commaLabel" text=",">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="roomNumLabel" text="RoomNum">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <TabPane prefHeight="295.0" prefWidth="590.0" tabClosingPolicy="UNAVAILABLE">
+                    <tabs>
+                      <Tab fx:id="infoTab" text="Info">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="239.0" prefWidth="590.0">
+                                 <children>
+                                    <GridPane fx:id="infoGridPane" layoutY="7.0" prefHeight="257.0" prefWidth="591.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <ChoiceBox fx:id="roomTypeChoiceBox" prefWidth="150.0" />
+                                          <TextField fx:id="architecturalCodeTextField" onAction="#handleArchCodeTextFieldAction" promptText="Architectural Code" GridPane.rowIndex="1" />
+                                          <TextField fx:id="roomNameTextField" onAction="#handleRoomNameTextFieldAction" promptText="Room Name, e.g. 'John's Room'" GridPane.rowIndex="2" />
+                                          <TextField fx:id="squareFootageTextField" onAction="#handleSFTextFieldAction" promptText="Square Footage" GridPane.rowIndex="3" />
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </padding>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                      <Tab fx:id="electricalTab" text="Electrical">
+                        <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="electricalTable" layoutX="31.0" layoutY="-21.0" prefHeight="263.5" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="elecTypeCol" prefWidth="75.0" text="Type" />
+                                        <TableColumn fx:id="elecLocationCol" prefWidth="75.0" text="Location" />
+                                          <TableColumn fx:id="elecBrandCol" prefWidth="75.0" text="Brand" />
+                                          <TableColumn fx:id="elecModelCol" prefWidth="75.0" text="Model" />
+                                          <TableColumn fx:id="elecNoteCol" prefWidth="75.0" text="Note" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                        </content>
+                      </Tab>
+                        <Tab fx:id="finishesTab" text="Finishes">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="finTableView" layoutX="8.0" layoutY="7.0" prefHeight="263.5" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="finLocationCol" prefWidth="75.0" text="Location" />
+                                        <TableColumn fx:id="finBrandCol" prefWidth="75.0" text="Brand" />
+                                          <TableColumn fx:id="finMaterialCol" prefWidth="75.0" text="Material" />
+                                          <TableColumn fx:id="finColorCol" prefWidth="75.0" text="Color/Pattern" />
+                                          <TableColumn fx:id="finSheenCol" prefWidth="75.0" text="Sheen" />
+                                          <TableColumn fx:id="finNoteCol" prefWidth="75.0" text="Note" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="flooringTab" text="Flooring">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="flooringTableView" layoutX="65.0" layoutY="-21.0" prefHeight="263.5" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="flooringMaterialCol" prefWidth="75.0" text="Material" />
+                                        <TableColumn fx:id="flooringDimensionsCol" prefWidth="75.0" text="Dimensions" />
+                                          <TableColumn fx:id="flooringBrandCol" prefWidth="75.0" text="Brand" />
+                                          <TableColumn fx:id="flooringNoteCol" prefWidth="75.0" text="Note" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="plumbingTab" text="Plumbing">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="plumTableView" layoutX="37.0" layoutY="-18.0" prefHeight="263.5" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="plumTypeCol" prefWidth="60.0" text="Type" />
+                                        <TableColumn fx:id="plumLocationCol" prefWidth="90.0" text="Location" />
+                                          <TableColumn fx:id="plumBrandCol" prefWidth="84.0" text="Brand" />
+                                          <TableColumn fx:id="plumModelCol" prefWidth="97.0" text="Model" />
+                                          <TableColumn fx:id="plumNoteCol" prefWidth="258.0" text="Note" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="trimTab" text="Trim">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <TableView fx:id="trimTableView" layoutX="14.0" layoutY="-24.0" prefHeight="263.5" prefWidth="590.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                      <columns>
+                                        <TableColumn fx:id="trimTypeCol" prefWidth="75.0" text="Type" />
+                                        <TableColumn fx:id="trimLocationCol" prefWidth="95.0" text="Location" />
+                                          <TableColumn fx:id="trimMaterialCol" prefWidth="104.0" text="Material" />
+                                          <TableColumn fx:id="trimBrandCol" prefWidth="103.0" text="Brand" />
+                                          <TableColumn fx:id="trimNoteCol" prefWidth="212.0" text="Note" />
+                                      </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                    </tabs>
+                  </TabPane>
+                  <HBox prefHeight="2.0" prefWidth="590.0" spacing="15.0">
+                     <children>
+                        <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleNextButtonAction" text="Next" />
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
+                        <Button fx:id="homeButton" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </content>
+</TitledPane>

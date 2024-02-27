@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<TitledPane id="mainTitledPane" fx:id="mainTitledPane" prefHeight="1162.0" prefWidth="602.0" text="Detail Tracker" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="detail_tracker.controllers.ReportController">
+   <content>
+      <ScrollPane>
+         <content>
+            <VBox id="mainVBox" fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="15.0">
+               <opaqueInsets>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <children>
+                  <Label text="Project Report">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Separator prefWidth="200.0" />
+                  <HBox id="projNameHBox" fx:id="projNameHBox" spacing="15.0">
+                     <children>
+                        <Label id="projNameLabel" fx:id="projNameLabel" text="Project Name:">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
+                        <Label id="projNameLabel" fx:id="projNameLabel" text="projectNameLabel">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                        </Label>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <padding>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+                  <Separator prefWidth="200.0" />
+                  <VBox id="addressVBox" fx:id="addressVBox" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label id="addressLabel" fx:id="addressLabel" text="Address">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="addressTextBox" fx:id="addressTextBox" editable="false" prefHeight="127.0" prefWidth="590.0" promptText="Client address" />
+                     </children>
+                  </VBox>
+                  <Separator prefWidth="200.0" />
+                  <VBox id="clientNameVBox" fx:id="clientNameVBox" prefHeight="132.0" prefWidth="590.0">
+                     <children>
+                        <Label text="Client">
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="clientNameTextBox" fx:id="clientNameTextBox" editable="false" prefHeight="113.0" prefWidth="590.0" promptText="Client name(s)" />
+                     </children>
+                  </VBox>
+                  <Separator prefWidth="200.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label id="contactLabel" fx:id="contactLabel" text="Contact">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TextArea id="contactInfoTextField" fx:id="contactInfoTextField" editable="false" prefHeight="200.0" prefWidth="200.0" promptText="Contact info" />
+                     </children>
+                  </VBox>
+                  <Separator prefWidth="200.0" />
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <padding>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </padding>
+                     <children>
+                        <Label id="houseInfoLabel" fx:id="houseInfoLabel" text="House Info">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
+                        <TableView id="houseInfoTable" fx:id="houseInfoTable" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn id="floorColumn" fx:id="floor" prefWidth="75.0" text="Floors" />
+                            <TableColumn prefWidth="75.0" text="Rooms" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </VBox>
+                  <Separator prefWidth="200.0" />
+                  <VBox id="roomInfoVBox" fx:id="roomInfoVBox" prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <Label id="roomInfoLabel" fx:id="roomInfoLabel" text="Floor X, Room X Info">
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font></Label>
+                        <Label id="electricalDetailsLabel" fx:id="electricalDetailsLabel" text="Electrical Details">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TableView id="electricalDetailsTable" fx:id="electricalDetailsTable" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn id="elecTypeCol" fx:id="elecTypeCol" prefWidth="75.0" text="Type" />
+                            <TableColumn id="elecLocationCol" fx:id="elecLocationCol" prefWidth="75.0" text="Location" />
+                              <TableColumn id="elecBrandCol" fx:id="elecBrandCol" prefWidth="75.0" text="Brand" />
+                              <TableColumn id="elecModelCol" fx:id="elecModelCol" prefWidth="75.0" text="Model" />
+                              <TableColumn id="elecNoteCol" fx:id="elecNoteCol" prefWidth="75.0" text="Note" />
+                          </columns>
+                        </TableView>
+                        <Label fx:id="finishDetailsLabel" text="Finish Details">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TableView id="finishDetailsLabel" fx:id="finishDetailsTable" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn id="finMaterialCol" fx:id="finMaterialCol" prefWidth="75.0" text="Material" />
+                            <TableColumn id="finLocationCol" fx:id="finLocationCol" prefWidth="75.0" text="Location" />
+                              <TableColumn id="finColorCol" fx:id="finColorCol" prefWidth="75.0" text="Color/Pattern" />
+                              <TableColumn id="finSheenCol" fx:id="finSheenCol" prefWidth="75.0" text="Sheen" />
+                              <TableColumn id="finBrandCol" fx:id="finBrandCol" prefWidth="75.0" text="Brand" />
+                              <TableColumn id="finNoteCol" fx:id="finNoteCol" prefWidth="75.0" text="Note" />
+                          </columns>
+                        </TableView>
+                        <Label id="flooringDetailsLabel" fx:id="flooringDetailsLabel" text="Flooring Details">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TableView id="flooringDetailsTable" fx:id="flooringDetailsTable" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn id="flrMaterialCol" fx:id="flrMaterialCol" prefWidth="75.0" text="Material" />
+                            <TableColumn id="flrLocationCol" fx:id="flrLocationCol" prefWidth="75.0" text="Location" />
+                              <TableColumn id="floorDimensionsCol" fx:id="flrDimensionsCol" prefWidth="75.0" text="Dimensions" />
+                              <TableColumn id="flrBrandCol" fx:id="flrBrandCol" prefWidth="75.0" text="Brand" />
+                              <TableColumn id="flrNoteCol" fx:id="flrNoteCol" prefWidth="75.0" text="Note" />
+                          </columns>
+                        </TableView>
+                        <Label id="plumbingDetailsLabel" fx:id="plumbingDetailsLabel" text="Plumbing Details">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TableView id="plumbingDetailsTable" fx:id="plumbingDetailsTable" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn id="plumTypeCol" fx:id="plumbTypeCol" prefWidth="75.0" text="Type" />
+                            <TableColumn id="plumLocationCol" fx:id="plumLocationCol" prefWidth="75.0" text="Location" />
+                              <TableColumn id="plumBrandCol" fx:id="plumbBrandCol" prefWidth="75.0" text="Brand" />
+                              <TableColumn id="plumbModelCol" fx:id="plumbModelCol" prefWidth="75.0" text="Model" />
+                              <TableColumn id="plumbNoteCol" fx:id="plumNoteCol" prefWidth="75.0" text="Note" />
+                          </columns>
+                        </TableView>
+                        <Label id="trimDetailsLabel" fx:id="trimDetailsLabel" text="Trim Details">
+                           <padding>
+                              <Insets top="10.0" />
+                           </padding>
+                           <font>
+                              <Font name="System Bold" size="13.0" />
+                           </font>
+                        </Label>
+                        <TableView id="trimDetailsTable" fx:id="trimDetailsTable" prefHeight="200.0" prefWidth="200.0">
+                          <columns>
+                            <TableColumn id="trimTypeCol" fx:id="trimTypeCol" prefWidth="75.0" text="Type" />
+                            <TableColumn id="trimLocationCol" fx:id="trimLocationCol" prefWidth="75.0" text="Location" />
+                              <TableColumn id="trimMaterialCol" fx:id="trimMaterialCol" prefWidth="75.0" text="Material" />
+                              <TableColumn id="trimDimensionsCol" fx:id="trimDimensionsCol" prefWidth="75.0" text="Dimensions" />
+                              <TableColumn id="trimBrandCol" fx:id="trimBrandCol" prefWidth="75.0" text="Brand" />
+                              <TableColumn id="trimNoteCol" fx:id="trimNoteCol" prefWidth="75.0" text="Note" />
+                          </columns>
+                        </TableView>
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </VBox>
+                  <HBox id="buttonHBox" fx:id="buttonHBox" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="15.0">
+                     <children>
+                        <Button fx:id="printButton" mnemonicParsing="false" text="Print" />
+                        <Button fx:id="backButton" mnemonicParsing="false" onAction="#handleBackButtonAction" text="Back" />
+                        <Button fx:id="homeButton" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </content>
+</TitledPane>

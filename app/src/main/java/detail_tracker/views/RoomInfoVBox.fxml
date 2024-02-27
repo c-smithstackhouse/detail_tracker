@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox id="roomInfoVBox" fx:id="roomInfoVBox" prefHeight="392.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="detail_tracker.controllers.RoomInfoVBoxController">
+   <children>
+      <Label id="roomInfoLabel" fx:id="roomInfoLabel" text="Floor X, Room X Info">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Label>
+      <Label id="electricalDetailsLabel" fx:id="electricalDetailsLabel" text="Electrical Details">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView id="electricalDetailsTable" fx:id="electricalDetailsTable" prefHeight="200.0" prefWidth="200.0">
+         <columns>
+            <TableColumn id="elecTypeCol" fx:id="elecTypeCol" prefWidth="75.0" text="Type" />
+            <TableColumn id="elecLocationCol" fx:id="elecLocationCol" prefWidth="75.0" text="Location" />
+            <TableColumn id="elecBrandCol" fx:id="elecBrandCol" prefWidth="75.0" text="Brand" />
+            <TableColumn id="elecModelCol" fx:id="elecModelCol" prefWidth="75.0" text="Model" />
+            <TableColumn id="elecNoteCol" fx:id="elecNoteCol" prefWidth="75.0" text="Note" />
+         </columns>
+      </TableView>
+      <Label fx:id="finishDetailsLabel" text="Finish Details">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView id="finishDetailsLabel" fx:id="finishDetailsTable" prefHeight="200.0" prefWidth="200.0">
+         <columns>
+            <TableColumn id="finMaterialCol" fx:id="finMaterialCol" prefWidth="75.0" text="Material" />
+            <TableColumn id="finLocationCol" fx:id="finLocationCol" prefWidth="75.0" text="Location" />
+            <TableColumn id="finColorCol" fx:id="finColorCol" prefWidth="75.0" text="Color/Pattern" />
+            <TableColumn id="finSheenCol" fx:id="finSheenCol" prefWidth="75.0" text="Sheen" />
+            <TableColumn id="finBrandCol" fx:id="finBrandCol" prefWidth="75.0" text="Brand" />
+            <TableColumn id="finNoteCol" fx:id="finNoteCol" prefWidth="75.0" text="Note" />
+         </columns>
+      </TableView>
+      <Label id="flooringDetailsLabel" fx:id="flooringDetailsLabel" text="Flooring Details">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView id="flooringDetailsTable" fx:id="flooringDetailsTable" prefHeight="200.0" prefWidth="200.0">
+         <columns>
+            <TableColumn id="flrMaterialCol" fx:id="flrMaterialCol" prefWidth="75.0" text="Material" />
+            <TableColumn id="flrLocationCol" fx:id="flrLocationCol" prefWidth="75.0" text="Location" />
+            <TableColumn id="floorDimensionsCol" fx:id="flrDimensionsCol" prefWidth="75.0" text="Dimensions" />
+            <TableColumn id="flrBrandCol" fx:id="flrBrandCol" prefWidth="75.0" text="Brand" />
+            <TableColumn id="flrNoteCol" fx:id="flrNoteCol" prefWidth="75.0" text="Note" />
+         </columns>
+      </TableView>
+      <Label id="plumbingDetailsLabel" fx:id="plumbingDetailsLabel" text="Plumbing Details">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView id="plumbingDetailsTable" fx:id="plumbingDetailsTable" prefHeight="200.0" prefWidth="200.0">
+         <columns>
+            <TableColumn id="plumTypeCol" fx:id="plumbTypeCol" prefWidth="75.0" text="Type" />
+            <TableColumn id="plumLocationCol" fx:id="plumLocationCol" prefWidth="75.0" text="Location" />
+            <TableColumn id="plumBrandCol" fx:id="plumbBrandCol" prefWidth="75.0" text="Brand" />
+            <TableColumn id="plumbModelCol" fx:id="plumbModelCol" prefWidth="75.0" text="Model" />
+            <TableColumn id="plumbNoteCol" fx:id="plumNoteCol" prefWidth="75.0" text="Note" />
+         </columns>
+      </TableView>
+      <Label id="trimDetailsLabel" fx:id="trimDetailsLabel" text="Trim Details">
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <TableView id="trimDetailsTable" fx:id="trimDetailsTable" prefHeight="200.0" prefWidth="200.0">
+         <columns>
+            <TableColumn id="trimTypeCol" fx:id="trimTypeCol" prefWidth="75.0" text="Type" />
+            <TableColumn id="trimLocationCol" fx:id="trimLocationCol" prefWidth="75.0" text="Location" />
+            <TableColumn id="trimMaterialCol" fx:id="trimMaterialCol" prefWidth="75.0" text="Material" />
+            <TableColumn id="trimDimensionsCol" fx:id="trimDimensionsCol" prefWidth="75.0" text="Dimensions" />
+            <TableColumn id="trimBrandCol" fx:id="trimBrandCol" prefWidth="75.0" text="Brand" />
+            <TableColumn id="trimNoteCol" fx:id="trimNoteCol" prefWidth="75.0" text="Note" />
+         </columns>
+      </TableView>
+   </children>
+   <padding>
+      <Insets bottom="5.0" right="5.0" top="5.0" />
+   </padding>
+</VBox>
