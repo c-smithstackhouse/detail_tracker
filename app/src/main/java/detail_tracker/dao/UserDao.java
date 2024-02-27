@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.User;
 import java.util.List;
+
+import detail_tracker.entities.User;
 
 public interface UserDao {
     User findById(Integer id);

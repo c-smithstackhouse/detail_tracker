@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.Contact;
 import java.util.List;
+
+import detail_tracker.entities.Contact;
 
 public interface ContactDao {
     Contact findById(Integer id);

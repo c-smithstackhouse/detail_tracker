@@ -1,4 +1,4 @@
-package detail_tracker.entity;
+package detail_tracker.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

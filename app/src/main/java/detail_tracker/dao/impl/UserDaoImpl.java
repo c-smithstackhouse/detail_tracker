@@ -1,7 +1,8 @@
 package detail_tracker.dao.impl;
 
 import detail_tracker.dao.UserDao;
-import detail_tracker.entity.User;
+import detail_tracker.entities.User;
+
 import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

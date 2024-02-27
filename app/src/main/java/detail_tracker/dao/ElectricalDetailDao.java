@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.ElectricalDetail;
 import java.util.List;
+
+import detail_tracker.entities.ElectricalDetail;
 
 public interface ElectricalDetailDao {
     ElectricalDetail findById(Integer id);

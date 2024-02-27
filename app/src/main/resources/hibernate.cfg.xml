@@ -1,10 +1,3 @@
-<!-- Remember to replace com.mysql.jdbc.Driver with the JDBC driver class for your 
-database, jdbc:mysql://localhost:3306/mydatabase with the JDBC URL for your database, 
-username and password with your database username and password, 
-org.hibernate.dialect.MySQL5Dialect with the Hibernate dialect for your database, and 
-com.example.MyEntity1 and com.example.MyEntity2 with the fully-qualified names of your 
-entity classes. Add more <mapping class="..."/> lines as needed for all your entity classes.-->
-
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
         "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
@@ -13,13 +6,13 @@ entity classes. Add more <mapping class="..."/> lines as needed for all your ent
 <hibernate-configuration>
     <session-factory>
         <!-- Database connection settings -->
-        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/mydatabase</property>
-        <property name="hibernate.connection.username">username</property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/detail_tracker</property>
+        <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">password</property>
 
         <!-- SQL dialect -->
-        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</property>
+        <!-- <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property> -->
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
@@ -42,8 +35,23 @@ entity classes. Add more <mapping class="..."/> lines as needed for all your ent
 
         <!-- Names of mapped classes -->
         <!-- Replace with your actual entity classes -->
-        <mapping class="com.example.MyEntity1"/>
-        <mapping class="com.example.MyEntity2"/>
+        <mapping class="detail_tracker.entities.Address"/>
+        <mapping class="detail_tracker.entities.Client"/>
+        <mapping class="detail_tracker.entities.ClientAddress"/>
+        <mapping class="detail_tracker.entities.Contact"/>
+        <mapping class="detail_tracker.entities.ElectricalDetail"/>
+        <mapping class="detail_tracker.entities.ElectricalDeviceLkp"/>
+        <mapping class="detail_tracker.entities.FinishDetail"/>
+        <mapping class="detail_tracker.entities.Floor"/>
+        <mapping class="detail_tracker.entities.FlooringDetail"/>
+        <mapping class="detail_tracker.entities.Note"/>
+        <mapping class="detail_tracker.entities.PlumbingDetail"/>
+        <mapping class="detail_tracker.entities.PlumbingFixtureLkp"/>
+        <mapping class="detail_tracker.entities.Project"/>
+        <mapping class="detail_tracker.entities.ProjectClient"/>
+        <mapping class="detail_tracker.entities.Room"/>
+        <mapping class="detail_tracker.entities.TrimDetail"/>
+        <mapping class="detail_tracker.entities.User"/>
         <!-- More classes can be added here -->
     </session-factory>
 </hibernate-configuration>

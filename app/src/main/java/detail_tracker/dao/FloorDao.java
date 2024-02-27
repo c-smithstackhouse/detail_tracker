@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.Floor;
 import java.util.List;
+
+import detail_tracker.entities.Floor;
 
 public interface FloorDao {
     Floor findById(Integer id);

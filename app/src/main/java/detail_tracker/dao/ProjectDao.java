@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.Project;
 import java.util.List;
+
+import detail_tracker.entities.Project;
 
 public interface ProjectDao {
     Project findById(Integer id);

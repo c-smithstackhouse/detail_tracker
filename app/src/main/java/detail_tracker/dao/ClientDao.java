@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.Client;
 import java.util.List;
+
+import detail_tracker.entities.Client;
 
 public interface ClientDao {
     Client findById(Integer id);

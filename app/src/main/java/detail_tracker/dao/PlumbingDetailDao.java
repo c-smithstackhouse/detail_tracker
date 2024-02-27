@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.PlumbingDetail;
 import java.util.List;
+
+import detail_tracker.entities.PlumbingDetail;
 
 public interface PlumbingDetailDao {
     PlumbingDetail findById(Integer id);

@@ -3,9 +3,11 @@ package detail_tracker.service;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
-import detail_tracker.entity.Contact;
-import detail_tracker.entity.Contact.Preferred;
+
 import java.util.List;
+
+import detail_tracker.entities.Contact;
+import detail_tracker.entities.Contact.Preferred;
 
 public class ContactService {
 

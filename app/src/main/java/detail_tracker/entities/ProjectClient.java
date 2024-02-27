@@ -1,4 +1,4 @@
-package detail_tracker.entity;
+package detail_tracker.entities;
 
 import detail_tracker.keys.ProjectClientId;
 import jakarta.persistence.Entity;
@@ -16,26 +16,26 @@ public class ProjectClient {
     @Id
     @ManyToOne
     @JoinColumn(name = "project_id")
-    private Project project;
+    private Project projectId;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private Client client;
+    private Client clientId;
 
     public Project getProject() {
-        return project;
+        return projectId;
     }
 
-    public void setProject(Project project) {
-        this.project = project;
+    public void setProject(Project projectId) {
+        this.projectId = projectId;
     }
 
     public Client getClient() {
-        return client;
+        return clientId;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClient(Client clientId) {
+        this.clientId = clientId;
     }
 }

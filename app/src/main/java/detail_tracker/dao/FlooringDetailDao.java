@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.FlooringDetail;
 import java.util.List;
+
+import detail_tracker.entities.FlooringDetail;
 
 public interface FlooringDetailDao {
     FlooringDetail findById(Integer id);

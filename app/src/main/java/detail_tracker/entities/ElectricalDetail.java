@@ -1,15 +1,15 @@
-package detail_tracker.entity;
+package detail_tracker.entities;
 
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "plumbing_detail")
-public class PlumbingDetail {
+@Table(name = "electrical_detail")
+public class ElectricalDetail {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "plumbing_det_id", nullable = false)
-    private int plumbingDetId;
+    @Column(name = "electrical_det_id", nullable = false)
+    private int electricalDetId;
 
     @ManyToOne
     @JoinColumn(name = "room_id", nullable = false)
@@ -19,9 +19,12 @@ public class PlumbingDetail {
     @JoinColumn(name = "note_id")
     private Note note;
 
+    @Column(name = "location", nullable = false)
+    private String location;
+
     @ManyToOne
-    @JoinColumn(name = "plumbing_fixture_id", nullable = false)
-    private PlumbingFixtureLkp plumbingFixture;
+    @JoinColumn(name = "electrical_device_id", nullable = false)
+    private ElectricalDeviceLkp electricalDevice;
 
     @Column(name = "brand", nullable = false, columnDefinition = "VARCHAR(50) DEFAULT 'n/a'")
     private String brand = "n/a";
@@ -29,16 +32,13 @@ public class PlumbingDetail {
     @Column(name = "model", nullable = false, columnDefinition = "VARCHAR(50) DEFAULT 'n/a'")
     private String model = "n/a";
 
-    @Column(name = "location", nullable = false)
-    private String location;
-
     // getters and setters
-    public int getPlumbingDetId() {
-        return plumbingDetId;
+    public int getElectricalDetId() {
+        return electricalDetId;
     }
 
-    public void setPlumbingDetId(int plumbingDetId) {
-        this.plumbingDetId = plumbingDetId;
+    public void setElectricalDetId(int electricalDetId) {
+        this.electricalDetId = electricalDetId;
     }
 
     public Room getRoom() {
@@ -57,12 +57,20 @@ public class PlumbingDetail {
         this.note = note;
     }
 
-    public PlumbingFixtureLkp getPlumbingFixture() {
-        return plumbingFixture;
+    public String getLocation() {
+        return location;
     }
 
-    public void setPlumbingFixture(PlumbingFixtureLkp plumbingFixture) {
-        this.plumbingFixture = plumbingFixture;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public ElectricalDeviceLkp getElectricalDevice() {
+        return electricalDevice;
+    }
+
+    public void setElectricalDevice(ElectricalDeviceLkp electricalDevice) {
+        this.electricalDevice = electricalDevice;
     }
 
     public String getBrand() {
@@ -79,13 +87,5 @@ public class PlumbingDetail {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public String getLocation() {
-        return location;
-    }
-
-    public void setLocation(String location) {
-        this.location = location;
     }
 }

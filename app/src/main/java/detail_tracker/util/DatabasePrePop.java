@@ -2,10 +2,10 @@ package detail_tracker.util;
 
 import jakarta.ejb.Singleton;
 import jakarta.ejb.Startup;
-import detail_tracker.entity.ElectricalDeviceLkp;
-import detail_tracker.entity.PlumbingFixtureLkp;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import detail_tracker.entities.ElectricalDeviceLkp;
+import detail_tracker.entities.PlumbingFixtureLkp;
 import  jakarta.annotation.PostConstruct;
 
 @Singleton

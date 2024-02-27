@@ -1,4 +1,4 @@
-package detail_tracker.entity;
+package detail_tracker.entities;
 
 import jakarta.persistence.*;
 
@@ -6,10 +6,29 @@ import jakarta.persistence.*;
 @Table(name = "trim_detail")
 public class TrimDetail {
 
+    public enum TrimType {
+        APRON,
+        BACKBAND,
+        BASEBOARD,
+        BUILT_IN,
+        COUNTERTOP,
+        DOOR_CASING,
+        MANTLE,
+        PEDESTAL,
+        SILL,
+        SHELF,
+        THRESHOLD,
+        WINDOW_CASING,
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "trim_det_id")
     private int trimDetId;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "trim_type")
+    private TrimType trimType;
 
     @Column(name = "room_id", nullable = false)
     private int roomId;
@@ -25,6 +44,9 @@ public class TrimDetail {
 
     @Column(name = "brand", nullable = false, length = 100)
     private String brand;
+    
+    @Column(name = "type", nullable = false, length = 100)
+    private String type;
 
     // getters and setters
     public int getTrimDetId() {
@@ -73,5 +95,13 @@ public class TrimDetail {
 
     public void setBrand(String brand) {
         this.brand = brand;
+    }
+
+    public TrimType getTrimType() {
+        return trimType;
+    }
+
+    public void setTrimType(TrimType trimType) {
+        this.trimType = trimType;
     }
 }

@@ -1,4 +1,4 @@
-package detail_tracker.entity;
+package detail_tracker.entities;
 
 import jakarta.persistence.*;
 import java.util.Date;

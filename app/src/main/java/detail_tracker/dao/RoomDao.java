@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.Room;
 import java.util.List;
+
+import detail_tracker.entities.Room;
 
 public interface RoomDao {
     Room findById(Integer id);

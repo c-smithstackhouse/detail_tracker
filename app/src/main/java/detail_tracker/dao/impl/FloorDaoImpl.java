@@ -1,7 +1,8 @@
 package detail_tracker.dao.impl;
 
-import detail_tracker.entity.Floor;
 import detail_tracker.dao.FloorDao;
+import detail_tracker.entities.Floor;
+
 import java.util.List;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

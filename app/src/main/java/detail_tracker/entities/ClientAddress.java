@@ -1,4 +1,4 @@
-package detail_tracker.entity;
+package detail_tracker.entities;
 
 import detail_tracker.keys.ClientAddressId;
 import jakarta.persistence.Entity;
@@ -16,26 +16,26 @@ public class ClientAddress {
     @Id
     @ManyToOne
     @JoinColumn(name = "client_id")
-    private Client client;
+    private Client clientId;
 
     @Id
     @ManyToOne
     @JoinColumn(name = "address_id")
-    private Address address;
+    private Address addressId;
 
     public Client getClient() {
-        return client;
+        return clientId;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setClient(Client clientId) {
+        this.clientId = clientId;
     }
 
     public Address getAddress() {
-        return address;
+        return addressId;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress(Address addressId) {
+        this.addressId = addressId;
     }
 }

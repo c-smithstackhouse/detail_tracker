@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.FinishDetail;
 import java.util.List;
+
+import detail_tracker.entities.FinishDetail;
 
 public interface FinishDetailDao {
     FinishDetail findById(Integer id);

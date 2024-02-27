@@ -1,7 +1,8 @@
 package detail_tracker.dao;
 
-import detail_tracker.entity.TrimDetail;
 import java.util.List;
+
+import detail_tracker.entities.TrimDetail;
 
 public interface TrimDetailDao {
     TrimDetail findById(Integer id);

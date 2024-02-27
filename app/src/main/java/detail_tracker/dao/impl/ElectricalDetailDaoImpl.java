@@ -3,8 +3,9 @@ package detail_tracker.dao.impl;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
-import detail_tracker.entity.ElectricalDetail;
+
 import detail_tracker.dao.ElectricalDetailDao;
+import detail_tracker.entities.ElectricalDetail;
 
 public class ElectricalDetailDaoImpl implements ElectricalDetailDao {
 

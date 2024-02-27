@@ -1,7 +1,7 @@
 package detail_tracker.dao.impl;
 
-import detail_tracker.entity.PlumbingDetail;
 import detail_tracker.dao.PlumbingDetailDao;
+import detail_tracker.entities.PlumbingDetail;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import java.util.List;
