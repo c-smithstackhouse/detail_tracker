@@ -38,31 +38,31 @@ public class RoomEditorController {
 
     @FXML
     public void handleArchCodeTextFieldAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 
     @FXML
     public void handleRoomNameTextFieldAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 
     @FXML
     public void handleSFTextFieldAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 
     @FXML
     public void handleNextButtonAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 
     @FXML
     public void handleBackButtonAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 
     @FXML
     public void handleHomeButtonAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 }

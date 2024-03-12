@@ -56,36 +56,36 @@ public class CreateNewProjectController {
 
     @FXML
     public void handleNameAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleAddress1Action() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleAddress2Action() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleCityAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleStateAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleZipAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleButtonAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 }

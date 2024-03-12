@@ -41,16 +41,16 @@ public class LoginController {
 
     @FXML
     public void handleUsernameAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handlePasswordAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleLoginButtonAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 }

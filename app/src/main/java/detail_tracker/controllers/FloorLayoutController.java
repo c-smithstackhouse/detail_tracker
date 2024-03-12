@@ -33,11 +33,11 @@ public class FloorLayoutController {
 
     @FXML
     public void handleNextButtonAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleBackButtonAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 }

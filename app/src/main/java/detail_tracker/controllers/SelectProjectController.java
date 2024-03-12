@@ -53,11 +53,11 @@ public class SelectProjectController {
 
     @FXML
     public void handleGoButtonAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 
     @FXML
     public void handleHomeButtonAction() {
-        // Implement your logic here
+        // Implement business logic here
     }
 }

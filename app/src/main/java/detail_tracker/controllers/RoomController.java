@@ -46,16 +46,16 @@ public class RoomController {
 
     @FXML
     public void handleEditButtonAction() {
-        // Implement your action here
+        // Implement business action here
     }
 
     @FXML
     public void handleBackButtonAction() {
-        // Implement your action here
+        // Implement business action here
     }
 
     @FXML
     public void handleHomeButtonAction() {
-        // Implement your action here
+        // Implement business action here
     }
 }

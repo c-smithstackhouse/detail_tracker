@@ -65,16 +65,16 @@ public class ProjectMainController {
 
     @FXML
     public void handleGoButtonAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleExportButton() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 
     @FXML
     public void handleHomeButtonAction() {
-        // TODO: Implement your logic here
+        // TODO: Implement business logic here
     }
 }
