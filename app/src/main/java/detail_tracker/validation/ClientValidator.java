@@ -1,7 +1,6 @@
 package detail_tracker.validation;
 
 import javafx.scene.control.TextField;
-import detail_tracker.validation.ValidationResult;
 
 public class ClientValidator {
 
@@ -14,7 +13,7 @@ public class ClientValidator {
         result = isValidName(firstNameField);
         if (!result.isValid()) return result;
 
-        result = MiddleInitialValidator.isValidMiddleInitial(middleInitialField);
+        result = isValidMiddleInitial(middleInitialField);
         if (!result.isValid()) return result;
 
         result = isValidName(lastNameField);

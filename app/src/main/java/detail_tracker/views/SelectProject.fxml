@@ -37,6 +37,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.HBox?>
@@ -49,7 +50,7 @@
          <content>
             <VBox id="mainVBox" fx:id="mainVBox" alignment="TOP_CENTER" prefHeight="400.0" prefWidth="640.0" spacing="15.0">
               <children>
-                  <Label id="title" fx:id="title" alignment="CENTER" text="Select Project">
+                  <Label id="title" fx:id="title" alignment="CENTER" text="Please make a selection">
                      <font>
                         <Font name="AtkinsonHyperlegible-Bold" size="24.0" />
                      </font>
@@ -67,11 +68,11 @@
                      <children>
                         <Group id="activeProjGroup" fx:id="activeProjGroup">
                            <children>
-                              <Label id="activeProjLabel" fx:id="activeProjLabel" text="Active Projects" />
-                              <ChoiceBox id="activeProjChoiceBox" fx:id="activeProjChoiceBox" layoutY="17.0" prefWidth="150.0" />
+                              <Label id="activeProjLabel" fx:id="activeProjLabel" layoutY="-21.0" text="Active Projects" />
+                              <ChoiceBox id="activeProjChoiceBox" fx:id="activeProjChoiceBox" layoutY="-4.0" prefWidth="150.0" />
                            </children>
                            <VBox.margin>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                              <Insets bottom="5.0" left="   5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Group>
                         <Group id="archivedProjGroup" fx:id="archivedProjGroup">
@@ -83,6 +84,14 @@
                               <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                            </VBox.margin>
                         </Group>
+                        <RadioButton fx:id="createNewProjectRadioButton" mnemonicParsing="false" onAction="#handleCreateNewProjectRadioButtonAction" text="Create New Project">
+                           <VBox.margin>
+                              <Insets bottom="5.0" right="5.0" top="5.0" />
+                           </VBox.margin>
+                           <padding>
+                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                           </padding>
+                        </RadioButton>
                      </children>
                   </VBox>
                   <HBox id="buttonHBox" fx:id="buttonHBox" alignment="CENTER" prefHeight="26.0" prefWidth="640.0" spacing="10.0">
