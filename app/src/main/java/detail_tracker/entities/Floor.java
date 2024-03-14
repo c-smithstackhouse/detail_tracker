@@ -3,11 +3,15 @@ package detail_tracker.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.EnumType;
+import java.util.Set;
 
 @Entity
 @Table(name = "floor")
@@ -31,13 +35,15 @@ public class Floor {
     @Column(name = "floor_type", nullable = false)
     private FloorType floorType;
 
-    /**     
-    @Column(name = "floor_name", nullable = false, length = 100, columnDefinition = "varchar(100) default 'n/a'")
-    private String floorName = "n/a";
-    */
+    @ManyToOne
+    @JoinColumn(name = "project_id", nullable = false)
+    private Project project;
 
-    @Column(name = "arch_code", nullable = false, length = 20, columnDefinition = "varchar(20) default 'n/a'")
-    private String archCode = "n/a";
+    @Column(name = "room_cnt", nullable = false, columnDefinition = "INT DEFAULT 1")
+    private Integer roomCount = 1;
+
+    @OneToMany(mappedBy = "floor")
+    private Set<Room> rooms;
 
     public Integer getFloorId() {
         return floorId;
@@ -54,21 +60,29 @@ public class Floor {
     public void setFloorType(FloorType floorType) {
         this.floorType = floorType;
     }
-    /**
-    public String getFloorName() {
-        return floorName;
+
+    public Project getProject() {
+        return project;
     }
 
-    public void setFloorName(String floorName) {
-        this.floorName = floorName;
-    }
-    */
-
-    public String getArchCode() {
-        return archCode;
+    public void setProject(Project project) {
+        this.project = project;
     }
 
-    public void setArchCode(String archCode) {
-        this.archCode = archCode;
+    public Integer getRoomCount() {
+        return roomCount;
     }
+
+    public void setRoomCount(Integer roomCount) {
+        this.roomCount = roomCount;
+    }
+
+    public Set<Room> getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Set<Room> rooms) {
+        this.rooms = rooms;
+    }
+
 }

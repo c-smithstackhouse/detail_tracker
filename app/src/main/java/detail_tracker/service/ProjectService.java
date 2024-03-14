@@ -1,8 +1,12 @@
 package detail_tracker.service;
 
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.NoResultException;
+import jakarta.persistence.Persistence;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
+import jakarta.persistence.NonUniqueResultException;
 
 import java.util.List;
 
@@ -12,6 +16,36 @@ public class ProjectService {
 
     @PersistenceContext
     private EntityManager entityManager;
+
+        private EntityManagerFactory entityManagerFactory;
+
+    public ProjectService() {
+        entityManagerFactory = Persistence.createEntityManagerFactory("your_persistence_unit");
+    }
+
+    public List<String> getActiveProjects() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+
+        try {
+            String queryStr = "SELECT p.project_name FROM Project p WHERE p.archived = false";
+            TypedQuery<String> query = entityManager.createQuery(queryStr, String.class);
+            return query.getResultList();
+        } finally {
+            entityManager.close();
+        }
+    }
+
+    public List<String> getArchivedProjects() {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+    
+        try {
+            String queryStr = "SELECT p.project_name FROM Project p WHERE p.archived = true";
+            TypedQuery<String> query = entityManager.createQuery(queryStr, String.class);
+            return query.getResultList();
+        } finally {
+            entityManager.close();
+        }
+    }
 
     public Project createProject(String projectName, Boolean archived) {
         Project project = new Project();
@@ -50,11 +84,24 @@ public class ProjectService {
     }
 
     // Additional methods
+public Project getProjectByName(String projectName) {
+    EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-    public List<Project> findByProjectName(String projectName) {
-        TypedQuery<Project> query = entityManager.createQuery("SELECT p FROM Project p WHERE p.projectName = :projectName", Project.class);
-        query.setParameter("projectName", projectName);
-        return query.getResultList();
+    try {
+        String queryStr = "SELECT p FROM Project p WHERE p.project_name = :name";
+        TypedQuery<Project> query = entityManager.createQuery(queryStr, Project.class);
+        query.setParameter("name", projectName);
+        return query.getSingleResult();
+    } catch (NoResultException e) {
+        // No project with the given name was found
+        return null;
+    } catch (NonUniqueResultException e) {
+        // More than one project with the given name was found
+        // Handle this case as needed
+        return null;
+    } finally {
+        entityManager.close();
+    }
     }
 
     public List<Project> findArchivedProjects() {

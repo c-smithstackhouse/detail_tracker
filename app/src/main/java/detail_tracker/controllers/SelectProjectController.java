@@ -21,6 +21,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.scene.Parent;
+import detail_tracker.service.ProjectService;
 
 
 public class SelectProjectController {
@@ -64,16 +65,16 @@ public class SelectProjectController {
     @FXML
     private Button homeBtn;
 
-    private ClientService clientService;
+    private ProjectService projectService;
 
     @FXML
     private void initialize() {
-        this.clientService = new ClientService();
+        this.projectService = new ProjectService();
 
-        List<String> activeProjects = clientService.getActiveProjects();
+        List<String> activeProjects = projectService.getActiveProjects();
         activeProjChoiceBox.setItems(FXCollections.observableArrayList(activeProjects));
 
-        List<String> archivedProjects = clientService.getArchivedProjects();
+        List<String> archivedProjects = projectService.getArchivedProjects();
         archivedProjChoiceBox.setItems(FXCollections.observableArrayList(archivedProjects));
 
         // Add listeners to the selectedItemProperty of each ChoiceBox

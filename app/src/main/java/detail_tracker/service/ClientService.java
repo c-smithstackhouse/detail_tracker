@@ -74,35 +74,5 @@ public class ClientService {
         return client;
     }
 
-    private EntityManagerFactory entityManagerFactory;
-
-    public ClientService() {
-        entityManagerFactory = Persistence.createEntityManagerFactory("your_persistence_unit");
-    }
-
-    public List<String> getActiveProjects() {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-
-        try {
-            String queryStr = "SELECT p.name FROM Project p WHERE p.archived = false";
-            TypedQuery<String> query = entityManager.createQuery(queryStr, String.class);
-            return query.getResultList();
-        } finally {
-            entityManager.close();
-        }
-    }
-
-    public List<String> getArchivedProjects() {
-        EntityManager entityManager = entityManagerFactory.createEntityManager();
-    
-        try {
-            String queryStr = "SELECT p.name FROM Project p WHERE p.archived = true";
-            TypedQuery<String> query = entityManager.createQuery(queryStr, String.class);
-            return query.getResultList();
-        } finally {
-            entityManager.close();
-        }
-    }
-
 
 }

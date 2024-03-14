@@ -16,7 +16,6 @@ public class FloorService {
     public Floor createFloor(Floor.FloorType floorType, String archCode) {
         Floor floor = new Floor();
         floor.setFloorType(floorType);
-        floor.setArchCode(archCode);
 
         entityManager.persist(floor);
 
@@ -31,7 +30,6 @@ public class FloorService {
         Floor floor = entityManager.find(Floor.class, floorId);
         if (floor != null) {
             floor.setFloorType(floorType);
-            floor.setArchCode(archCode);
         }
 
         return floor;

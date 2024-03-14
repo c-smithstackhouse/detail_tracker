@@ -59,6 +59,11 @@ dependencies {
 
 }
 
+// Export to PDF
+dependencies {
+    implementation 'com.itextpdf:itextpdf:5.5.13'
+}
+
 application {
     // Define the main class for the application.
     mainClass = 'detail_tracker.App'

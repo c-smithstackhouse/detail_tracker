@@ -101,7 +101,7 @@
                   <HBox id="buttonHBox" fx:id="buttonHBox" alignment="CENTER" prefHeight="26.0" prefWidth="642.0" spacing="10.0">
                      <children>
                         <Button id="goBtn" fx:id="goButton" mnemonicParsing="false" onAction="#handleGoButtonAction" text="Go" />
-                        <Button id="exportBtn" fx:id="exportButton" mnemonicParsing="false" onAction="#handleExportButton" text="Export" />
+                        <Button id="exportBtn" fx:id="exportButton" mnemonicParsing="false" onAction="#handleExportButtonAction" text="Export" />
                         <Button id="homeBtn" fx:id="homeButton" mnemonicParsing="false" onAction="#handleHomeButtonAction" text="Home" />
                      </children>
                      <padding>

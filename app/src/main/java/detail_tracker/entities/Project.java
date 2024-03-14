@@ -3,9 +3,11 @@ package detail_tracker.entities;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import java.util.Set;
 
 @Entity
 @Table(name = "project")
@@ -20,6 +22,12 @@ public class Project {
 
     @Column(name = "archived", nullable = false, columnDefinition = "boolean default false")
     private Boolean archived;
+
+    @Column(name = "floor_cnt", nullable = false, columnDefinition = "INT DEFAULT 1")
+    private Integer floorCount = 1;
+
+    @OneToMany(mappedBy = "project")
+    private Set<Floor> floors;
 
     public Integer getProjectId() {
         return projectId;
@@ -43,5 +51,21 @@ public class Project {
 
     public void setArchived(Boolean archived) {
         this.archived = archived;
+    }
+
+    public Integer getFloorCount() {
+        return floorCount;
+    }
+
+    public void setFloorCount(Integer floorCount) {
+        this.floorCount = floorCount;
+    }
+
+    public Set<Floor> getFloors() {
+        return floors;
+    }
+
+    public void setFloors(Set<Floor> floors) {
+        this.floors = floors;
     }
 }
